@@ -143,10 +143,10 @@ bot.on('message', async message => {
           break;
       case "talkbot":
           clbot.write(message.content, (response) => {
-            message.channel.startTyping();
+            //message.channel.startTyping();
             setTimeout(() => {
               message.channel.send(response.output).catch(console.error);
-              message.channel.stopTyping();
+              //message.channel.stopTyping();
             }, Math.random() * (1 - 3) + 1 * 1000);
           });
           break;
