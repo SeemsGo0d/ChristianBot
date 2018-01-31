@@ -21,6 +21,8 @@ var servers = {};
 var badwords = ['fuck','ass','frick','heck','damn','darn','shit','cunt','fag','hell','dick','sex','pusst','gay','tit','furries','furry','scalies','fag','poop','dildo','penis'];
 
 bot.on('message', async message => {
+  
+  bot.user.setGame('Ascending');
 
     // ctrl+c to close
     // node . to start
