@@ -164,7 +164,8 @@ bot.on('message', async message => {
                 return;
             }
             else{
-                message.channel.bulkDelete(purgecount);
+                const fetched = await message.channel.fetchMessages({count: purgecount});
+                message.channel.bulkDelete(fetched);
             }
           }
           break;
