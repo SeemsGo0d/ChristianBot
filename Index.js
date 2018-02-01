@@ -158,7 +158,7 @@ bot.on('message', async message => {
               return;
           }
           else{
-            var purgecount = parseInt(args[1],10);
+            const purgecount = parseInt(args[1],10);
             if(!purgecount || purgecount < 2 || purgecount > 100){
                 message.channel.send("I can only delete between 2 and 100 messages");
                 return;
