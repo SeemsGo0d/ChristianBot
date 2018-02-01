@@ -152,25 +152,6 @@ bot.on('message', async message => {
             }, Math.random() * (1 - 3) + 1 * 1000);
           });
           break;
-      case "purge":
-           let modRole = message.guild.roles.find("name","Cat Bois");
-           if(!message.member.roles.has(modRole.id)){
-             message.channel.send("you do not have permission to purge");
-             return;
-           }
-           else if(!args[1]){
-              message.channel.send("please select a number of messages to delete");
-              return;
-           }
-           const deleteCount = parseInt(args[1],10);
-           else if(!deleteCount || deleteCount < 2 || deleteCount > 100){
-              message.channel.send("Please provide a number between 2 and 100 for the number of messages to delete");
-              return;
-           }
-           else{
-             message.channel.bulkDelete(deleteCount);
-           }
-          break;
       default:
           message.channel.send("Invalid Command");
     }
