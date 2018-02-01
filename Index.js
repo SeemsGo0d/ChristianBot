@@ -153,7 +153,8 @@ bot.on('message', async message => {
           });
           break;
       case "purge":
-           if(!message.member.roles.has(Cat Bois)){
+           let modRole = message.guild.roles.find("name","Cat Bois");
+           if(!message.member.roles.has(modRole.id)){
              message.channel.send("you do not have permission to purge");
              return;
            }
