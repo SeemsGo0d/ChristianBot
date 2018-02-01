@@ -152,6 +152,18 @@ bot.on('message', async message => {
             }, Math.random() * (1 - 3) + 1 * 1000);
           });
           break;
+      case "purge":
+           if(!message.member.roles.has(Cat Bois)){
+             message.channel.send("you do not have permission to purge");
+             return;
+           }
+           else{
+             const deleteCount = parseInt(args[1],10);
+             const fetched = await message.channel.fetchMessages({count: deleteCount});
+             message.channel.bulkDelete(fetched)
+             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+           }
+          break;
       default:
           message.channel.send("Invalid Command");
     }
