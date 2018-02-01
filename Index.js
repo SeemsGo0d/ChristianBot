@@ -157,11 +157,17 @@ bot.on('message', async message => {
              message.channel.send("you do not have permission to purge");
              return;
            }
+           else if(!args[1]){
+              message.channel.send("please select a number of messages to delete");
+              return;
+           }
+           const deleteCount = parseInt(args[1],10);
+           else if(!deleteCount || deleteCount < 2 || deleteCount > 100){
+              message.channel.send("Please provide a number between 2 and 100 for the number of messages to delete");
+              return;
+           }
            else{
-             const deleteCount = parseInt(args[1],10);
-             const fetched = await message.channel.fetchMessages({count: deleteCount});
-             message.channel.bulkDelete(fetched)
-             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+             message.channel.bulkDelete(deleteCount);
            }
           break;
       default:
