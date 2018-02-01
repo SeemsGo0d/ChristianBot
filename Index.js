@@ -152,6 +152,22 @@ bot.on('message', async message => {
             }, Math.random() * (1 - 3) + 1 * 1000);
           });
           break;
+      case "purge":
+          if(!message.member.hasPermission('MANAGE_MESSAGES')){
+              message.channel.send("you do not have permission to do this");
+              return;
+          }
+          else{
+            var purgecount = parseInt(args[1],10);
+            if(!purgecount || purgecount < 2 || purgecount > 100){
+                message.channel.send("I can only delete between 2 and 100 messages");
+                return;
+            }
+            else{
+                message.channel.bulkDelete(purgecount);
+            }
+          }
+          break;
       default:
           message.channel.send("Invalid Command");
     }
