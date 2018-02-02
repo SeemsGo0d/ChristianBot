@@ -88,9 +88,15 @@ bot.on('message', async message => {
           }
           break;
       case "say":
+          if(!message.member.roles.has("409025800730574848")){
+             message.channel.send("Invalid Command");
+             return;
+          }
+          else{
           const sayMessage = say.join(" ");
           message.delete();
           message.channel.send(sayMessage);
+          }
           break;
       case "rate":
           var rating = Math.floor(Math.random()*11);
