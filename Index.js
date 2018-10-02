@@ -22,7 +22,7 @@ var badwords = ['fuck','ass','frick','heck','damn','darn','shit','cunt','fag','h
 
 bot.on('message', async message => {
   
-  bot.user.setGame('Ascending');
+  bot.user.setGame('Spooktober');
 
     // ctrl+c to close
     // node . to start
